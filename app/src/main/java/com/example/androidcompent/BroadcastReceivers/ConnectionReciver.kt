@@ -1,4 +1,4 @@
-package com.example.androidcompent
+package com.example.androidcompent.BroadcastReceivers
 
 import android.content.BroadcastReceiver
 import android.content.Context

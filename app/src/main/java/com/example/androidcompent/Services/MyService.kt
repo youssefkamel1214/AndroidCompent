@@ -1,4 +1,4 @@
-package com.example.androidcompent
+package com.example.androidcompent.Services
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -6,14 +6,13 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
-import android.os.Binder
 import android.os.Build
 import android.os.CountDownTimer
 import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import java.util.Timer
-import java.util.TimerTask
+import com.example.androidcompent.MainActivity
+import com.example.androidcompent.R
 
 
 class MyService : Service() {
@@ -34,8 +33,6 @@ class MyService : Service() {
             0, notificationIntent, PendingIntent.FLAG_MUTABLE
         )
         counter= object : CountDownTimer(input.toLong(),1000) {
-
-
             override fun onTick(millisUntilFinished: Long) {
                 Log.d("MyService","remining time ${millisUntilFinished}")
                 val notification: Notification = NotificationCompat.Builder(this@MyService, CHANNEL_ID)
@@ -72,6 +69,7 @@ class MyService : Service() {
                 NotificationManager::class.java
             )
             manager.createNotificationChannel(serviceChannel)
+
         }
     }
 
